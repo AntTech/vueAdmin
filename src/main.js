@@ -3,7 +3,7 @@ import Vue from 'vue'
 import App from './App'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
-//import './assets/theme/theme-green/index.css'
+import './assets/theme/theme-darkblue/index.css'
 import VueRouter from 'vue-router'
 import store from './vuex/store'
 import Vuex from 'vuex'
@@ -31,7 +31,9 @@ router.beforeEach((to, from, next) => {
   }
   let user = JSON.parse(sessionStorage.getItem('user'));
   if (!user && to.path != '/login') {
-    next({ path: '/login' })
+    next({
+      path: '/login'
+    })
   } else {
     next()
   }
@@ -49,4 +51,3 @@ new Vue({
   //components: { App }
   render: h => h(App)
 }).$mount('#app')
-
